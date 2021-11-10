@@ -1,0 +1,59 @@
+.card {
+  border: 1px solid rgb(235, 144, 40);
+  flex: 1;
+  margin: 0 5px;
+  border-radius: 10px;
+  background: linear-gradient(to right top, #fdc830, #f37335);
+  color: black;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.header-weather {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.header-weather h2 {
+  font-size: 12px;
+  position: absolute;
+  top: 75%;
+}
+
+.details {
+  background: white;
+  padding: 5px 5px 5px 10px;
+}
+
+.details h2 {
+  font-size: 16px;
+  border-bottom: 1px solid gray;
+}
+
+.details p {
+  font-size: 14px;
+  padding: 3px 0 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bold-span {
+  font-weight: bold;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 8px;
+  padding: 3px 5px;
+}

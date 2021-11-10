@@ -1,38 +1,68 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app {
+  width: 100%;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-family: "Poppins", sans-serif;
   color: white;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+main {
+  width: 100vw;
+  min-height: 100vh;
+  background: rgb(30, 30, 30);
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.logo {
+  font-size: 16px;
+  position: absolute;
+  top: 5%;
+  left: 7%;
+}
+
+.forecast {
+  position: absolute;
+  width: 80%;
+  height: fit-content;
+  min-height: 300px;
+  left: 50%;
+  top: 35%;
+  transform: translateX(-50%);
+  padding: 0 5px;
+  border-radius: 5px;
+}
+
+.forecast-city {
+  margin-left: 5px;
+  padding: 10px 0;
+  font-size: 20px;
+  animation: showCity 1s;
+}
+
+.forecast-cards {
+  display: flex;
+  overflow: hidden;
+  animation: showCards 1.5s;
+}
+
+/* ANIMATION */
+@keyframes showCards {
+  0% {
+    margin-top: 500px;
   }
-  to {
-    transform: rotate(360deg);
+  30% {
+    margin-top: 500px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+
+@keyframes showCity {
+  0% {
+    margin-left: -500px;
+  }
+  100% {
+    margin-left: 5;
   }
 }
