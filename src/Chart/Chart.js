@@ -3,14 +3,13 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 
 function Chart({data}) {
-    console.log(data);
     return (
         <div style={{width: '60%'}}>
            <Line
             data={{
                 labels: data.date,
                 datasets: [{
-                    data: data.temp,
+                    data: data.temperatures,
                     borderColor: 'rgb(233, 126, 26)',
                     backgroundColor: 'rgb(233,126,26)',
                 }]

@@ -7,8 +7,6 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import axios from "../axios";
 import request from "../requests";
-import makeCsvData from '../makeCsvData';
-import getPlottingData from '../getPlottingData';
 
 const delay = (ms) =>  {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -18,14 +16,25 @@ function Form({ setPlottingData, setCityData, setIsLoading }) {
     const [inputValue, setInputValue] = useState("London");
     const [error, setError] = useState(false);
 
+    const makePlottingData = (arr) => {
+        let date = [];
+        let temperatures = [];
+        const plottingData = arr.reduce((data, item) => {
+                const { dt_txt, main:{temp} } = item;
+                date.push(dt_txt);
+                temperatures.push(Math.round((temp - 273.15)));
+                return data;
+            }, {date, temperatures});
+
+        return plottingData;
+    }
+
     const getData = async () => {
         const link = request.fetchForecastWeather.replace("London", inputValue);
         await delay(1000);
         try {
             const response = await axios.get(link);
-            const csvData = makeCsvData(response.data.list);
-            const plottingData = getPlottingData(csvData);
-            console.log(plottingData);
+            const plottingData = makePlottingData(response.data.list);
             setPlottingData(plottingData);
             setCityData(response.data.city);
             setIsLoading(false);
@@ -41,7 +50,7 @@ function Form({ setPlottingData, setCityData, setIsLoading }) {
         getData();
     }, [])
 
-    const handleFormSubmit = async (e) => {
+    const handleFormSubmit = (e) => {
         e.preventDefault();
         setIsLoading(true);
         setPlottingData();
