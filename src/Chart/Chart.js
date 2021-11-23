@@ -2,9 +2,11 @@ import React from 'react';
 
 import { Line } from 'react-chartjs-2';
 
+import "./Chart.css";
+
 function Chart({data}) {
     return (
-        <div style={{width: '60%'}}>
+        <div className="chart">
            <Line
             data={{
                 labels: data.date,

@@ -1,0 +1,16 @@
+.chart {
+  width: 60%;
+}
+
+@media screen and (max-width: 1000px) {
+  .chart {
+    width: 80%;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .chart {
+    width: 95%;
+  }
+}

@@ -7,6 +7,12 @@ form {
   height: 50px;
 }
 
+@media screen and (max-width: 690px) {
+  form {
+    width: 70%;
+  }
+}
+
 .container {
   display: flex;
   justify-content: space-between;
